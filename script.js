@@ -1,8 +1,8 @@
 //David's API Key: acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9
 
-let url = "https://api.watchmode.com/v1/releases/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&limit=10"
+let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&limit=10"
 
-fetch(url)
+fetch(releasesUrl)
     .then(function(response){
         // console.log(response);
         return response.json();
@@ -17,7 +17,7 @@ fetch(url)
         // console.log(data);
         // let test1 = data;
         // console.log(test1);
-        // console.log(releases);
+        console.log(releases);
         // console.log(test1.releases[0]);
         // console.log(releases[0].title);
         // console.log(releases[0].poster_url);
@@ -63,3 +63,74 @@ fetch(url)
         // Append
         // document.body.appendChild(newImg);
     });
+
+
+    let genresUrl = "https://api.watchmode.com/v1/genres/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9"
+
+fetch(genresUrl)
+    .then(function(response){
+        // console.log(response);
+        return response.json();
+    })
+
+    .then(function(data){
+       
+        const genresObject = data;
+        const genresArray = [];
+        console.log(genresObject);
+            
+        for (i=0; i < genresObject.length; i++){
+            // console.log(genresObject[i].name);
+            genresArray.push(genresObject[i].name);
+        }
+
+        console.log(genresArray);
+
+    });
+
+// let userGenre;
+// userGenre = 'Action';
+// let genreId = '';
+
+// for (i=0; i < genresObject.length; i++){
+//     if(genresObject[i].name === userGenre){
+//         genreId = genresObject[i].id;
+//         break;
+//     }
+// }
+// console.log(genreId);
+
+// let listTitlesUrl = "https://api.watchmode.com/v1/list-titles/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9"
+
+// fetch(genresUrl)
+//     .then(function(response){
+//         // console.log(response);
+//         return response.json();
+//     })
+
+//     .then(function(data){
+       
+
+        // const genresObject = data;
+        // const genresArray = [];
+        // console.log(genresObject);
+            
+        // for (i=0; i < genresObject.length; i++){
+        //     // console.log(genresObject[i].name);
+        //     genresArray.push(genresObject[i].name);
+        // }
+
+        // console.log(genresArray);
+
+
+        // // tests how returned data operates
+        // console.log(data);
+        // let test1 = data;
+        // console.log(test1);
+        // console.log(releases);
+        // console.log(test1.releases[0]);
+        // console.log(releases[0].title);
+        // console.log(releases[0].poster_url);
+
+ 
+    // });
