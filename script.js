@@ -88,27 +88,27 @@ fetch(genresUrl)
 
     });
 
-let userGenre;
-userGenre = 'Action';
-let genreId = '';
+// let userGenre;
+// userGenre = 'Action';
+// let genreId = '';
 
-for (i=0; i < genresObject.length; i++){
-    if(genresObject[i].name === userGenre){
-        genreId = genresObject[i].id;
-        break;
-    }
-}
-console.log(genreId);
+// for (i=0; i < genresObject.length; i++){
+//     if(genresObject[i].name === userGenre){
+//         genreId = genresObject[i].id;
+//         break;
+//     }
+// }
+// console.log(genreId);
 
-let listTitlesUrl = "https://api.watchmode.com/v1/list-titles/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9"
+// let listTitlesUrl = "https://api.watchmode.com/v1/list-titles/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9"
 
-fetch(genresUrl)
-    .then(function(response){
-        // console.log(response);
-        return response.json();
-    })
+// fetch(genresUrl)
+//     .then(function(response){
+//         // console.log(response);
+//         return response.json();
+//     })
 
-    .then(function(data){
+//     .then(function(data){
        
 
         // const genresObject = data;
@@ -133,4 +133,4 @@ fetch(genresUrl)
         // console.log(releases[0].poster_url);
 
  
-    });
+    // });
