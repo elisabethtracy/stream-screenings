@@ -9,6 +9,55 @@ body {
   background-color: #FFFFE0
 }
 
+.header {
+display: flex;
+border-bottom: 10px inset rgba(35, 35, 104, 0.308);
+}
+
+.header-content {
+display: flex;
+background-image: linear-gradient(.25turn, #f1f1f1, #f1f1f1, rgb(61, 73, 145));
+}
+
+#header-logo {
+height: 400px;
+width: 400px;
+display:flex-start;
+margin-left: 70px;
+margin-top: 20px;
+}
+
+#header-right {
+display: flex-end;
+margin: 30px;
+border: 10px groove black;
+border-radius: 8px;
+
+}
+
+#site-title {
+  font-size:250%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-shadow: 2px 2px 5px yellow;
+  line-height: 60px;
+}
+
+#welcome {
+  display:flex;
+  justify-content: center;
+}
+
+#header-text {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  line-height: 30px;
+  text-align: justify;
+}
+
+
 h1 {
   text-align: center;
   margin-top: 40px auto;
