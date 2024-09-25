@@ -58,6 +58,7 @@ border-radius: 8px;
 }
 
 
+
 h1 {
     font-family: sans-serif;
     text-align: center;
@@ -106,4 +107,10 @@ h1 {
 .genre1-title {
     text-align: left;
     margin-left: 50px;
+}
+
+.carousel-item img {
+    max-width: 100%; /* Ensures the image does not exceed the width of the carousel */
+    height: auto; /* Maintains the aspect ratio */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
 }
