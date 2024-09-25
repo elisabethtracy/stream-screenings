@@ -210,8 +210,68 @@ fetch(releasesUrl)
 //         return response.json();
 //     })
 
-// .then(function(data){
-//     console.log(data);
-// });
+//     .then(function(data){
+       
+
+        // const genresObject = data;
+        // const genresArray = [];
+        // console.log(genresObject);
+            
+        // for (i=0; i < genresObject.length; i++){
+        //     // console.log(genresObject[i].name);
+        //     genresArray.push(genresObject[i].name);
+        // }
+
+        // console.log(genresArray);
+
+
+        // // tests how returned data operates
+        // console.log(data);
+        // let test1 = data;
+        // console.log(test1);
+        // console.log(releases);
+        // console.log(test1.releases[0]);
+        // console.log(releases[0].title);
+        // console.log(releases[0].poster_url);
 
  
+    // });
+
+
+
+
+    //MODAL ----------- commented out because incomplete
+    // const exampleModal = document.getElementById('exampleModal')
+    // exampleModal.addEventListener('show.bs.modal', function (event) {
+    //   // Button that triggered the modal
+    //   const button = event.relatedTarget
+    //   // Extract info from data-bs-* attributes
+    //   const recipient = button.getAttribute('data-bs-whatever')
+    //   // If necessary, you could initiate an AJAX request here
+    //   // and then do the updating in a callback.
+    //   //
+    //   // Update the modal's content.
+    //   const modalTitle = exampleModal.querySelector('.modal-title')
+    //   const modalBodyInput = exampleModal.querySelector('.modal-body input')
+    
+    //   modalTitle.textContent = 'New message to ' + recipient
+    //   modalBodyInput.value = recipient
+    // });
+
+
+    // const message = document.getElementById('message-text');
+    // const email = document.getElementById('recipient-name');
+    // const submitEl = document.getElementById('submit-button')
+
+    // function submitInfo(event) {
+    //     event.preventDefault();
+    //     const email = emailInput.value.trim();
+    //     const message = messageInput.value.trim();
+
+    //     localStorage.setItem('email', email);
+    //     localStorage.setItem('message', message);
+        
+
+
+    //     submitEl.addEventListener('click', submitInfo)
+    // }
