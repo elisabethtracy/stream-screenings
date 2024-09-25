@@ -42,6 +42,8 @@ const genresArrayLocal = [
 
 let container = document.querySelector('.container');
 
+let row = document.querySelector('.row');
+
 console.log(genresArrayLocal);
 
 
@@ -68,35 +70,57 @@ fetch(releasesUrl)
         // console.log(releases[0].poster_url);
 
         // shows all images and titles in "releases" object
-        //  image
+        
         for (i=0; i < releases.length; i++) {
+
+        // card div
+        // const div = document.createElement('div');
+        // div.classList.add('row');
+        // div.classList.add('col-lg');
+        // div.classList.add('card');
+        // document.body.appendChild(div);
+        // row.appendChild(div);
+        // let card = document.querySelector('.card');
+
+        const colLgDiv = document.createElement('div');
+        const cardDiv = document.createElement('div');
+        colLgDiv.classList.add('col-lg');
+        cardDiv.classList.add('card');
+        row.appendChild(colLgDiv);
+        colLgDiv.appendChild(cardDiv);
+
+        //  image
         const imgElement1 = document.createElement('img');
         const imgUrl1 = releases[i].poster_url;
         // imgTest1.setAttribute('src', releases[i].poster_url);    // can use this one or the next line, either works
         imgElement1.src = imgUrl1;
-        document.body.appendChild(imgElement1);
+        // imgElement1.classList.add('card-img-top');
+        cardDiv.appendChild(imgElement1);
 
         // text
         const txElement1 = document.createElement('tx');
         const txContent1 = releases[i].title;
         txElement1.textContent = txContent1;
-        document.body.appendChild(txElement1);
-
-        // card div
-        const div = document.createElement('div');
-        const newCard = "test";
-        div.classList.add('row');
-        div.classList.add('col-lg');
-        div.classList.add('card');
+        txElement1.classList.add('card-title');
+        cardDiv.appendChild(txElement1);
+        }
+        // const fragment = document.createDocumentFragment();
+        // const cardTest = fragment
+        //     .appendChild(document.createElement("section"))
+        //     .appendChild(document.createElement("ul"))
+        //     .appendChild(document.createElement("li"));
+        // cardTest.textContent = "movie title";   
+        // container.appendChild(fragment);
 
 
         // assigns other possibly useful parameters to variables
-        const watchModeID = releases[i].id;
-        const showOrMovie = releases[i].tmdb_type;
-        const serviceName = releases[i].source_name;
+        // const watchModeID = releases[i].id;
+        // const showOrMovie = releases[i].tmdb_type;
+        // const serviceName = releases[i].source_name;
 
-        }
+        
 
+        // genre functionality
         let userGenre;
         userGenre = 'Horror';
         let genreId = '';
