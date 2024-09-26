@@ -1,4 +1,3 @@
-//David's API Key: acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9
 
 const genresArrayLocal = [
 {id: 1, name: 'Action', tmdb_id: 28},
@@ -46,8 +45,23 @@ let row = document.querySelector('.row');
 
 console.log(genresArrayLocal);
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&limit=50";
+// David's API Key: acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9 // out of monthly requests
+// Jake's API Key: JKuoJOHyXXyCCTjmprvFSwO7Yx33M3i7p3G1vZh3
+// Elisabeth's API Key: ____
+
+// uses David's API key
+// out of monthly requests
+// let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&limit=15";
+
+// uses Jakes's API key
+let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=JKuoJOHyXXyCCTjmprvFSwO7Yx33M3i7p3G1vZh3&limit=15";
+
+// uses Elizabeths's API key
+// let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=_____&limit=15";
 
 fetch(releasesUrl)
     .then(function(releaseResponse){
@@ -106,7 +120,7 @@ fetch(releasesUrl)
                 const posterUrl = releases[i].poster_url;
                 // imgTest1.setAttribute('src', releases[i].poster_url);    // can use this one or the next line, either works
                 if (posterUrl === '') {
-                    posterImage.src = './assets/no image available.jpg';
+                    posterImage.src = './assets/no_image_available.jpg';
                 }   
                 else {
                     posterImage.src = posterUrl;
@@ -143,9 +157,17 @@ fetch(releasesUrl)
 
                 // movie or tv
                 const tvOrMovie = document.createElement('li');
-                const tvOrMovieSource = releases[i].type;
-                tvOrMovie.textContent = tvOrMovieSource;
-                tvOrMovie.textContent = `Type: ${tvOrMovieSource}`;
+                // const tvOrMovieSource = releases[i].type; // use if you want the tv_miniseries option and such
+                const tvOrMovieSource = releases[i].tmdb_type; // use if you only want tv or movie
+                // tvOrMovie.textContent = capitalizeFirstLetter(tvOrMovieSource);
+                let tvOrMovieSourceEdited = '';
+                if(tvOrMovieSource === 'movie'){
+                    tvOrMovieSourceEdited = capitalizeFirstLetter(tvOrMovieSource);
+                }
+                else if (tvOrMovieSource === 'tv'){
+                    tvOrMovieSourceEdited = tvOrMovieSource.toUpperCase();
+                }
+                tvOrMovie.textContent = `Type: ${tvOrMovieSourceEdited}`;
                 tvOrMovie.classList.add('card-text');
                 detailsList.appendChild(tvOrMovie);
 
@@ -169,31 +191,31 @@ fetch(releasesUrl)
         
 
         // genre functionality
-        let userGenre;
-        userGenre = 'Horror';
-        let genreId = '';
+        // let userGenre;
+        // userGenre = 'Horror';
+        // let genreId = '';
 
-        for (i=0; i < genresArrayLocal.length; i++){
-            if(genresArrayLocal[i].name === userGenre){
-                genreId = genresArrayLocal[i].id;
-                break;
-            }
-        }
-        console.log(genreId);
+        // for (i=0; i < genresArrayLocal.length; i++){
+        //     if(genresArrayLocal[i].name === userGenre){
+        //         genreId = genresArrayLocal[i].id;
+        //         break;
+        //     }
+        // }
+        // console.log(genreId);
 
-        let listTitlesUrl = "https://api.watchmode.com/v1/list-titles/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&genres=11";
+        // let listTitlesUrl = "https://api.watchmode.com/v1/list-titles/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&genres=11";
 
-        fetch(listTitlesUrl)
-            .then(function(titlesResponse){
-                // console.log(titlesResponse);
-                return titlesResponse.json();
-            })
+        // fetch(listTitlesUrl)
+        //     .then(function(titlesResponse){
+        //         // console.log(titlesResponse);
+        //         return titlesResponse.json();
+        //     })
 
-            .then(function(titlesData){
-                    console.log(titlesData);
+        //     .then(function(titlesData){
+        //             console.log(titlesData);
         
 
-            });
+        //     });
 
         // // text insertion reference code
         // onst txt = tempStorageObject.text[j];
@@ -215,7 +237,7 @@ fetch(releasesUrl)
         // document.body.appendChild(newImg);
     });
 
-    let genresUrl = "https://api.watchmode.com/v1/genres/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9";
+    // let genresUrl = "https://api.watchmode.com/v1/genres/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9";
 
 // fetch(genresUrl)
 //     .then(function(response){
