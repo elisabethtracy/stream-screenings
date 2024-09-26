@@ -60,7 +60,7 @@ function capitalizeFirstLetter(string) {
 // uses Jakes's API key
 let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=JKuoJOHyXXyCCTjmprvFSwO7Yx33M3i7p3G1vZh3&limit=15";
 
-// uses Elizabeths's API key
+// uses Elisabeths's API key
 // let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=_____&limit=15";
 
 fetch(releasesUrl)
@@ -84,7 +84,9 @@ fetch(releasesUrl)
 
         // shows all images and titles in "releases" object
         
-        for (i=0; i < releases.length; i++) {
+        // for (i=0; i < releases.length; i++) {
+        for (i=releases.length -1; i > -1; i--) {
+
 
             // card div
             // const div = document.createElement('div');
