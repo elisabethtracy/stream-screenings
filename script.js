@@ -47,7 +47,7 @@ let row = document.querySelector('.row');
 console.log(genresArrayLocal);
 
 
-let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&limit=10";
+let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&limit=50";
 
 fetch(releasesUrl)
     .then(function(releaseResponse){
@@ -56,7 +56,6 @@ fetch(releasesUrl)
     })
 
     .then(function(releaseData){
-       
 
         const releases = releaseData.releases;
 
@@ -73,36 +72,85 @@ fetch(releasesUrl)
         
         for (i=0; i < releases.length; i++) {
 
-        // card div
-        // const div = document.createElement('div');
-        // div.classList.add('row');
-        // div.classList.add('col-lg');
-        // div.classList.add('card');
-        // document.body.appendChild(div);
-        // row.appendChild(div);
-        // let card = document.querySelector('.card');
+            // card div
+            // const div = document.createElement('div');
+            // div.classList.add('row');
+            // div.classList.add('col-lg');
+            // div.classList.add('card');
+            // document.body.appendChild(div);
+            // row.appendChild(div);
+            // let card = document.querySelector('.card');
 
-        const colLgDiv = document.createElement('div');
-        const cardDiv = document.createElement('div');
-        colLgDiv.classList.add('col-lg');
-        cardDiv.classList.add('card');
-        row.appendChild(colLgDiv);
-        colLgDiv.appendChild(cardDiv);
+            const whereFoundSource = releases[i].source_name;
 
-        //  image
-        const imgElement1 = document.createElement('img');
-        const imgUrl1 = releases[i].poster_url;
-        // imgTest1.setAttribute('src', releases[i].poster_url);    // can use this one or the next line, either works
-        imgElement1.src = imgUrl1;
-        // imgElement1.classList.add('card-img-top');
-        cardDiv.appendChild(imgElement1);
+            if((whereFoundSource === 'ABC') ||
+                (whereFoundSource === 'CBS') ||
+                (whereFoundSource === 'FOX') ||
+                (whereFoundSource === 'FX') ||
+                (whereFoundSource === 'NBC') ||
+                (whereFoundSource === 'The CW') ) {
+                    continue;
+                }
+                else {
+                
+                //creates divs to display cards
+                const colLgDiv = document.createElement('div');
+                const cardDiv = document.createElement('div');
+                colLgDiv.classList.add('col-lg');
+                cardDiv.classList.add('card');
+                row.appendChild(colLgDiv);
+                colLgDiv.appendChild(cardDiv);
 
-        // text
-        const txElement1 = document.createElement('tx');
-        const txContent1 = releases[i].title;
-        txElement1.textContent = txContent1;
-        txElement1.classList.add('card-title');
-        cardDiv.appendChild(txElement1);
+                //  image
+                const posterImage = document.createElement('img');
+                const posterUrl = releases[i].poster_url;
+                // imgTest1.setAttribute('src', releases[i].poster_url);    // can use this one or the next line, either works
+                if (posterUrl === '') {
+                    posterImage.src = './assets/no image available.jpg';
+                }   
+                else {
+                    posterImage.src = posterUrl;
+                }
+                // imgElement1.classList.add('card-img-top');
+                cardDiv.appendChild(posterImage);
+
+                // title text
+                const titleText = document.createElement('tx');
+                const titleSource = releases[i].title;
+                titleText.textContent = titleSource;
+                titleText.classList.add('card-title');
+                cardDiv.appendChild(titleText);
+
+                // create & append unordered list
+                const detailsList = document.createElement('ul');
+                cardDiv.appendChild(detailsList);
+
+                // streaming service source
+                const whereFound = document.createElement('li');
+                // const whereFoundSource = releases[i].source_name; // defined above
+                // whereFound.textContent = whereFoundSource;
+                whereFound.textContent = `Where to watch: ${whereFoundSource}`;
+                whereFound.classList.add('card-text');
+                detailsList.appendChild(whereFound);
+
+                // release date
+                const dateReleased = document.createElement('li');
+                const dateReleasedSource = releases[i].source_release_date;
+                // dateReleased.textContent = dateReleasedSource;
+                dateReleased.textContent = `Release Date: ${dateReleasedSource}`;
+                dateReleased.classList.add('card-text');
+                detailsList.appendChild(dateReleased);
+
+                // movie or tv
+                const tvOrMovie = document.createElement('li');
+                const tvOrMovieSource = releases[i].type;
+                tvOrMovie.textContent = tvOrMovieSource;
+                tvOrMovie.textContent = `Type: ${tvOrMovieSource}`;
+                tvOrMovie.classList.add('card-text');
+                detailsList.appendChild(tvOrMovie);
+
+            }
+
         }
         // const fragment = document.createDocumentFragment();
         // const cardTest = fragment
