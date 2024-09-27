@@ -10,13 +10,13 @@ function capitalizeFirstLetter(string) {
 // uses David's API key (out of free monthly requests until Oct 23, 2024)
 // let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=acOQl1nbm9nht6C6qAYkvpbyu7UrI5LsCWLJAXz9&limit=15";
 
-// Jake's API Key: JKuoJOHyXXyCCTjmprvFSwO7Yx33M3i7p3G1vZh3
-// uses Jakes's API key (currently in use)
-let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=JKuoJOHyXXyCCTjmprvFSwO7Yx33M3i7p3G1vZh3&limit=15";
+// // Jake's API Key: JKuoJOHyXXyCCTjmprvFSwO7Yx33M3i7p3G1vZh3
+// // uses Jakes's API key (currently in use)
+// let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=JKuoJOHyXXyCCTjmprvFSwO7Yx33M3i7p3G1vZh3&limit=15";
 
-// Elisabeth's API Key: ____
+// Elisabeth's API Key: 2SOZch0yeMsPwW5jBmFfEMPUWcOSViG1UWh5FvaL
 // uses Elisabeths's API key (needs to be added in blanks above and below)
-// let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=_____&limit=15";
+let releasesUrl = "https://api.watchmode.com/v1/releases/?apiKey=2SOZch0yeMsPwW5jBmFfEMPUWcOSViG1UWh5FvaL&limit=15";
 
 fetch(releasesUrl)
     .then(function(releaseResponse){
