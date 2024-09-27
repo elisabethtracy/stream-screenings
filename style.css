@@ -159,7 +159,7 @@ h1 {
 }
 
 .footer-content {
-  display: flex;
+  display:flex;
   flex-wrap:wrap;
   background-image: linear-gradient(.25turn, #f1f1f1, #f1f1f1, rgb(61, 73, 145));
 }
@@ -167,6 +167,7 @@ h1 {
 #footer-logo {
   width: 100px;
   height: 105px;
+  margin-left: 20px;
   display: flex-start;
   flex-wrap: wrap;
 }
@@ -182,16 +183,18 @@ ul#footer {
 }
 
 li#copyright {
-  margin-left: -55px;
+  margin-left: 10px;
   margin-right: 20px;
 }
 
 li#site-footer {
   margin-left: 140px;
+  display:flex-end;
 }
 
 li#watchmode {
   margin-left: 200px;
+  display: flex-end;
 }
 
 
