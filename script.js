@@ -2,8 +2,6 @@ let container = document.querySelector('.container');
 
 let row = document.querySelector('.row');
 
-console.log(genresArrayLocal);
-
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
